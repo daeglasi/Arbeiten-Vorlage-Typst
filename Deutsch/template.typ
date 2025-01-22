@@ -12,7 +12,10 @@
   managementSummary: [],
   authors: (),
   supervisors: (),
-  industrialPartners: (),
+  coSupervisors: (),
+  industrialPartner: (),
+  proofReader: (),
+  expert: (),
   date: none,
   logoIndustrialPartner: none,
   ostLogo: none,
@@ -57,7 +60,7 @@
   }
 
   v(6fr)
-  smallcaps(text(1.1em, [#date - #arbeit #semester]))
+  smallcaps(text(1.1em, [#date - #arbeit - #semester]))
 
   v(0.6fr)
   text(2em, weight: 700, title)
@@ -67,49 +70,25 @@
     text(1.3em, subtitle)
   }
 
-  // Author information.
+  v(2fr)
+  // People involved
   pad(
-    top: 1em,
-    right: 16%,
     grid(
-      columns: (1.3fr, 1fr, 1fr, 1fr),
-      gutter: 2em,
-			[#smallcaps("Studierende:")],
-			..authors.map(author => align(start)[
-				*#author.name* \
-				#author.email
-			]),
-    ),
-  )
-
-	// Supervisor information.
-  pad(
-    top: 0.7em,
-    right: 20%,
-    grid(
-      columns: (1.3fr, 3fr),
-      gutter: 1em,
+      columns: (auto, auto),
+      gutter: 1.5em,
+			[#smallcaps("Autoren:")],
+      align(start)[#authors.map(sv => sv.name)],
 			[#smallcaps("Betreuer:")],
 			..supervisors.map(sv => align(start)[
-				*#sv.name* \
-				#sv.email
+				#sv.name
 			]),
-    ),
-  )
-
-	// Industrial partner information.
-  pad(
-    top: 0.7em,
-    right: 20%,
-    grid(
-      columns: (1.3fr, 3fr),
-      gutter: 1em,
-			[#smallcaps("Industrie-Partner:")],
-			..industrialPartners.map(ip => align(start)[
-				*#ip.name* \
-				#ip.company \
-				#ip.email
+			[#smallcaps("Betreuer:")],
+			..coSupervisors.map(sv => align(start)[
+				#sv.name
 			]),
+			[#smallcaps("Praxis Partner:")], [#industrialPartner.name],
+			[#smallcaps("Experte:")], [#expert.name (#expert.company)],
+      [#smallcaps("Proofreader:")], [#proofReader.name],
     ),
   )
 

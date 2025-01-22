@@ -13,17 +13,20 @@
   subtitle: "Die Typst Vorlage zu deiner Arbeit",
 	university: "OST - Ostschweizer Fachhochschule",
 	arbeit: "Studienarbeit",
-	semester: "Herbstsemester 2023/24",
+	semester: "Departement Informatik",
   authors: (
-    (name: "Max Muster", email: "max.muster@ost.ch"),
-    (name: "Anna Abc", email: "anna.abc@ost.ch"),
+    (name: "Max Muster"),
+    (name: "Anna Abc"),
   ),
 	supervisors:(
-    (name: "Prof. Dr. Daniel Düsentrieb", email: "dani.duesen@ost.ch"),
+    (name: "Prof. Dr. Daniel Düsentrieb"),
 	),
-	industrialPartners:(
-    (name: "Dagobert Duck", email: "dagobert@duck.ch", company: "Duck Incl."),
+	coSupervisors:(
+    (name: "Micky Maus"),
 	),
+	industrialPartner: (name: "Duck Incl."),
+  proofReader: (name: "Donald Duck"),
+  expert: (name: "Goofy", company: "G-Consultant Inc."),
   abstract: [#include "abstract.typ"],
   managementSummary: [#include "management_summary.typ"],
   date: datetime.today().display("[day].[month].[year]"),
